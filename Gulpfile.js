@@ -40,7 +40,7 @@ gulp.task('default', function() {
   gulp.watch('./frontend/src/**/*.js',['frontend']);
   gulp.watch('./frontend/src/**/*.less', ['less']);
 
-})
+
 
 
 
