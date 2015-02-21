@@ -4,21 +4,25 @@ var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
 var path = require('path');
 var fs = require('fs');
-
+var reactify = require('reactify');
 
 
 gulp.task('frontend', function() {
   return browserify({
     debug: true,
-    transform: ['reactify', {"es6": true}]
+    transform: ['reactify']
     //standalone: true
   })
-    //.add('./frontend/src/js/**/*.js')
-    .require(require.resolve('./frontend/src/js/main/app.js'), { entry: true })
+    .require(require.resolve('./frontend/src/js/app.js'), { entry: true })
+    .on('error', function(err) { console.log(err); })
     .bundle()
     //.pipe(gulp.dest('./frontend/build/js'));
-    .pipe(fs.createWriteStream('./frontend/build/js/main/app.js'))
+    .pipe(fs.createWriteStream('./frontend/build/js/app.js'))
 });
+
+var logger = function() {
+  console.log.apply(console, arguments);
+}
 
 gulp.task('less', function() {
   return gulp.src('./frontend/src/stylesheets/**/*.less')
