@@ -1,1 +1,1 @@
-web: supervisor webserver/index
+web: nodemon webserver/index

@@ -37,9 +37,10 @@ gulp.task('default', function() {
   //livereload.listen();
   gulp.run('less')
   gulp.run('frontend');
-  gulp.watch('./frontend/src/**/*.js',['frontend']);
+  gulp.watch(['./frontend/src/**/*.js', './shared'],['frontend']);
   gulp.watch('./frontend/src/**/*.less', ['less']);
 
+})
 
 
 
