@@ -33,7 +33,14 @@ gulp.task('less', function() {
     .pipe(gulp.dest('./frontend/build/stylesheets'))
 });
 
+gulp.task('default', function() {
+  //livereload.listen();
+  gulp.run('less')
+  gulp.run('frontend');
+  gulp.watch('./frontend/src/**/*.js',['frontend']);
+  gulp.watch('./frontend/src/**/*.less', ['less']);
 
+})
 
 
 
