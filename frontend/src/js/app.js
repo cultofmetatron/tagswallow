@@ -15,6 +15,8 @@ var React = require('react');
 var Navbar = require('./components/navbar');
 var Rx = require('Rx');
 
+var RxFire = require('../../../lib/rx-fire');
+
 React.render(<Navbar></Navbar>, document.body);
 
 var mouseMove = Rx.Observable.fromEvent(document, 'mousemove');
