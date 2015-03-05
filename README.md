@@ -1,2 +1,2 @@
 # tagswallow
-compossable tweet-like service
+composable tweet-like service
